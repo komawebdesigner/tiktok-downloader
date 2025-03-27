@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #1A1A2E;
@@ -5,47 +6,162 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    transition: background 0.3s, color 0.3s;
 }
 
-nav {
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #16213E;
     padding: 15px;
 }
 
-h1 {
-    margin: 0;
-    color: #FFD700;
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
 }
 
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #FFD700;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #E94560;
+}
+
+/* Main Container */
 .container {
     margin-top: 50px;
 }
 
-input {
-    width: 60%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #0F3460;
+/* Form Container (Inline Layout) */
+.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Space between elements */
+    margin: 20px auto;
+    flex-wrap: wrap;
+    width: 70%;
 }
 
+/* Input Fields */
+input, select, button {
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #0F3460;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Input Animation */
+input {
+    flex: 2;
+    background-color: #0F3460;
+    color: #F5F5F5;
+    text-align: center;
+}
+
+input:focus {
+    border-color: #FFD700;
+    box-shadow: 0px 0px 8px rgba(255, 215, 0, 0.7);
+    transform: scale(1.05);
+}
+
+/* Select Dropdown */
+select {
+    flex: 1;
+    background-color: #0F3460;
+    color: #F5F5F5;
+    cursor: pointer;
+    text-align: center;
+    appearance: none; /* Removes default browser styles */
+}
+
+select:hover {
+    border-color: #FFD700;
+    transform: scale(1.05);
+}
+
+/* Download Button */
 button {
-    padding: 10px 20px;
+    flex: 1;
     border: none;
     background-color: #E94560;
     color: white;
-    font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #F5F5F5;
-    color: #E94560;
+    background-color: #FFD700;
+    color: #1A1A2E;
+    transform: scale(1.05);
 }
 
+/* PWA Install Button */
+#installBtn {
+    display: none;
+    width: 60%;
+}
+
+/* Footer */
 footer {
     margin-top: 50px;
     background-color: #16213E;
     padding: 10px;
+    color: #FFD700;
+}
+
+/* Dark Mode */
+.dark-theme {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.dark-theme input, .dark-theme select {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #F5F5F5;
+}
+
+.dark-theme .navbar {
+    background-color: #111;
+}
+
+.dark-theme footer {
+    background-color: #111;
+}
+
+.dark-theme button {
+    background-color: #FFD700;
+    color: #1A1A2E;
+}
+
+.dark-theme button:hover {
+    background-color: #E94560;
+    color: white;
+}
+.testimonials {
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #16213E;
+}
+
+.testimonial {
+    margin: 20px;
+    font-style: italic;
 }

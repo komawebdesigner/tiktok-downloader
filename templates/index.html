@@ -2,25 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download TikTok Videos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Download videos from TikTok, Instagram, YouTube, and Facebook in high quality. No watermark, fast, and free!">
+    <meta name="keywords" content="TikTok video downloader, Instagram reels downloader, YouTube shorts saver, Facebook video download, no watermark">
+    <meta name="author" content="TikSaver">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="TikSaver - Download Social Media Videos Fast & Free">
+    <meta property="og:description" content="Save videos from TikTok, Instagram, YouTube, and Facebook easily. No watermark, high quality, and free!">
+    <meta property="og:image" content="static/icons/icon-512x512.png">
+    <meta property="og:url" content="https://www.tiksaver.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TikSaver - Download Social Media Videos">
+    <meta name="twitter:description" content="Easily download and save videos from TikTok, Instagram, YouTube, and Facebook. No watermark, fast & free!">
+    <meta name="twitter:image" content="static/icons/icon-512x512.png">
+    <link rel="icon" href="static/icons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/icons/apple-touch-icon.png">
+    <img src="static/icons/icon-512x512.png" loading="lazy" alt="TikSaver Logo">
+    <title>TikSaver - Download Social Media Videos in HD</title>
+    
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXXXX-X');
+    </script>
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-XXXXXXXXXXXXXXX" async 
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav>
-        <h1>Download TikTok Videos</h1>
+    <nav class="navbar">
+        <h1>TikSaver</h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/guide">User Guide</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="#" id="dark-mode-toggle">Dark Mode</a></li>
+        </ul>
     </nav>
 
     <!-- Main Section -->
     <section class="container">
-        <h2>Paste your TikTok video URL</h2>
-        <input type="text" id="videoUrl" placeholder="https://">
-        <button onclick="downloadVideo()">Download</button>
+        <h2>Paste your Video URL</h2>
+        <div class="form-group">
+            <input type="text" id="videoUrl" placeholder="https://">
+            <select id="platform">
+                <option value="tiktok">TikTok</option>
+                <option value="instagram">Instagram Reels</option>
+                <option value="youtube">YouTube Shorts</option>
+                <option value="facebook">Facebook Reels</option>
+            </select>
+            <button onclick="downloadVideo()">Download</button>
+        </div>
         <p id="message"></p>
     </section>
+
+    <!-- 📌 Google AdSense Ad Placement -->
+    <section class="ads-section">
+        <ins class="adsbygoogle"
+             style="display:block; text-align:center;"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </section>
+    <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial">
+            <p>"TikSaver is a game-changer! Super easy to use!" - <strong>Sarah</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"Fast downloads and works for all platforms!" - <strong>Mike</strong></p>
+        </div>
+    </section>
+    
 
     <!-- 📌 PWA Install Button -->
     <section class="install-section">
@@ -40,7 +110,19 @@
                 .catch(err => console.error("Service Worker registration failed:", err));
         }
     </script>
-    
+
+    <!-- 📌 Dark Mode Toggle -->
+    <script>
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            localStorage.setItem('dark-mode', document.body.classList.contains('dark-theme'));
+        });
+
+        if (localStorage.getItem('dark-mode') === 'true') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
 
     <!-- 📌 PWA Install Button Script -->
     <script>

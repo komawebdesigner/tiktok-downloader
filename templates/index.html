@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download TikTok Videos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <h1>Download TikTok Videos</h1>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="container">
+        <h2>Paste your TikTok video URL</h2>
+        <input type="text" id="videoUrl" placeholder="https://">
+        <button onclick="downloadVideo()">Download</button>
+        <p id="message"></p>
+    </section>
+
+    <!-- 📌 PWA Install Button -->
+    <section class="install-section">
+        <button id="installBtn" style="display: none;">Install App</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 TikSaver. All rights reserved.</p>
+    </footer>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service_worker.js')
+                .then(reg => console.log("Service Worker registered!", reg))
+                .catch(err => console.error("Service Worker registration failed:", err));
+        }
+    </script>
+    
+
+    <!-- 📌 PWA Install Button Script -->
+    <script>
+        let installPrompt;
+        
+        window.addEventListener("beforeinstallprompt", event => {
+            event.preventDefault();
+            installPrompt = event;
+            document.getElementById("installBtn").style.display = "block";
+        });
+
+        document.getElementById("installBtn").addEventListener("click", () => {
+            installPrompt.prompt();
+            installPrompt.userChoice.then(choice => {
+                if (choice.outcome === "accepted") {
+                    console.log("User installed the app!");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

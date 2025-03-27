@@ -1,0 +1,25 @@
+# Flask for the web framework
+Flask==2.2.3
+
+# Requests for making API calls
+requests==2.31.0
+
+# BeautifulSoup for web scraping (if needed)
+beautifulsoup4==4.12.2
+
+# SQLite support for database storage (built into Python, no package needed)
+
+# Flask-CORS for handling cross-origin requests
+Flask-CORS==3.0.10
+
+# Flask-Compress for performance optimization
+Flask-Compress==1.13
+
+# Gunicorn for production deployment
+gunicorn==21.2.0
+
+# Pytube for downloading YouTube videos
+pytube==15.0.0
+
+# MoviePy for video processing (if needed)
+moviepy==1.0.3
